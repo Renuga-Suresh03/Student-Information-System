@@ -6,6 +6,12 @@ import (
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
+type SubjectMark struct {
+	SubjectCode string `bson:"subject_code"`
+	Subject     string `bson:"subject"`
+	Mark        int    `bson:"mark"`
+}
+
 type Student struct {
 	ID            primitive.ObjectID `bson:"_id,omitempty"`
 	RegNo         string             `bson:"reg_no"`
@@ -18,4 +24,5 @@ type Student struct {
 	YearOfPassing time.Time          `bson:"year_of_passing"`
 	CurrentSem    int                `bson:"current_sem"`
 	ClassID       string             `bson:"class_id"`
+	Marks         []Mark             `bson:"marks"`
 }

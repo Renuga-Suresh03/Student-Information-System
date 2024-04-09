@@ -21,7 +21,7 @@ func (ac *AdminController) AuthenticateAdmin(adminID, pass string) (models.Admin
 	var admin models.Admin
 
 	// Fetch admin details from the database based on admin ID
-	collection := ac.DB.Collection("admins")
+	collection := ac.DB.Collection("Admin")
 	err := collection.FindOne(context.Background(), bson.M{"admin_id": adminID}).Decode(&admin)
 	if err != nil {
 		return models.Admin{}, errors.New("admin not found")
@@ -40,7 +40,7 @@ func (ac *AdminController) GetAdminProfile(adminID string) (models.Admin, error)
 	var admin models.Admin
 
 	// Fetch admin details from the database based on admin ID
-	collection := ac.DB.Collection("admins")
+	collection := ac.DB.Collection("Admin")
 	err := collection.FindOne(context.Background(), bson.M{"admin_id": adminID}).Decode(&admin)
 	if err != nil {
 		return models.Admin{}, errors.New("admin not found")

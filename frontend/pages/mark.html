@@ -1,12 +1,71 @@
-<!DOCTYPE html>
-<html>
-    <head></head>
-    <body>
-<h2 id="marks">Marks</h2>
-<button onclick="window.location.href = 'assessment_1.html';">Assessment 1</button>
-<button onclick="window.location.href = 'assessment_2.html';">Assessment 2</button>
-<button onclick="window.location.href = 'model.html';">Model</button>
-<p>Current Semester: 8</p> <!-- Display current sem no -->
 
-    </body>
+       
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        h2 {
+            margin-top: 40px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#profile">Profile</a></li>
+            <li><a href="#marks">Marks</a></li>
+            <li><a href="#attendance">Attendance</a></li>
+        </ul>
+    </nav>
+<div id="marks" class="container">
+        <h2>Marks</h2>
+        <button onclick="showAssessment('Assessment 1')">Assessment 1</button>
+        <button onclick="showAssessment('Assessment 2')">Assessment 2</button>
+        <button onclick="showAssessment('Model')">Model</button>
+        <p id="currentSem">Current Semester: 1</p>
+        <div id="assessmentTable"></div>
+    </div>
+</body>
 </html>

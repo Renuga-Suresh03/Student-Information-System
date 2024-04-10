@@ -1,3 +1,4 @@
+
 //admin_test
 /*
 
@@ -50,23 +51,21 @@ func main() {
 //student test
 
 /*package main
+=======
+// main.go
 
-import (
-	"context"
-	"controllers/backend/controllers"
-	"fmt"
-	"log"
 
-	"go.mongodb.org/mongo-driver/mongo"
-	"go.mongodb.org/mongo-driver/mongo/options"
-)
+package main
+
+import "controllers/server"
 
 func main() {
-	mongoURI := "mongodb://localhost:27017"
-	client, err := mongo.NewClient(options.Client().ApplyURI(mongoURI))
+	s := server.NewServer()
+	err := s.Start("8081")
 	if err != nil {
-		log.Fatal("Error creating MongoDB client:", err)
+		panic(err)
 	}
+
 	defer client.Disconnect(context.Background())
 	err = client.Connect(context.Background())
 	if err != nil {
@@ -237,5 +236,6 @@ func main() {
 	for _, record := range newAttendance.AttendanceRecords {
 		fmt.Printf("Date: %s, Status: %s\n", record.Date.Format("2006-01-02"), record.Status)
 	}
+=======
+
 }
-*/

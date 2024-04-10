@@ -167,7 +167,7 @@ func main() {
 // testing attendance pending
 
 // main.go
-package main
+/*package main
 
 import (
 	"context"
@@ -238,3 +238,4 @@ func main() {
 		fmt.Printf("Date: %s, Status: %s\n", record.Date.Format("2006-01-02"), record.Status)
 	}
 }
+*/

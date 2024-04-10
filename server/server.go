@@ -1,3 +1,5 @@
+// server.go
+
 package server
 
 import (
@@ -11,35 +13,26 @@ import (
 )
 
 type Server struct {
-	app                  *fiber.App
-	adminController      *controllers.AdminController
-	studentController    *controllers.StudentController
-	markController       *controllers.MarkController
-	attendanceController *controllers.AttendanceController
+	app             *fiber.App
+	adminController *controllers.AdminController
 }
 
 func NewServer() *Server {
-	client, err := mongo.Connect(context.Background(), options.Client().ApplyURI("mongodb://localhost:27017"))
+	client, err := mongo.Connect(context.Background(), options.Client().ApplyURI("mongodb://localhost:27017/STU"))
 	if err != nil {
 		log.Fatalf("failed to connect to MongoDB: %v", err)
-	}
+	} 
 
-	// Access the database from the client
-	db := client.Database("your_database_name")
+	db := client.Database("STU")
 
 	return &Server{
-		app:                  fiber.New(),
-		adminController:      controllers.NewAdminController(db),
-		studentController:    controllers.NewStudentController(db),
-		markController:       controllers.NewMarkController(db),
-		attendanceController: controllers.NewAttendanceController(db),
+		app:             fiber.New(),
+		adminController: controllers.NewAdminController(db),
 	}
 }
+
 func (s *Server) Start(port string) error {
 	s.setupAdminRoutes()
-	s.setupStudentRoutes()
-	s.setupMarkRoutes()
-	s.setupAttendanceRoutes()
 
 	return s.app.Listen(":" + port)
 }

@@ -1,3 +1,5 @@
+// adminroutes.go
+
 package server
 
 import (
@@ -5,26 +7,31 @@ import (
 )
 
 func (s *Server) setupAdminRoutes() {
-	// Define routes for admin functionality
-	// For example:
-	s.app.Post("/admin/login", func(c *fiber.Ctx) error {
-		// Implement logic for admin login
-		// Return appropriate response based on the login result
-		return c.SendString("Admin login handler")
-	})
+	admin := s.app.Group("/admin")
 
-	s.app.Get("/admin/profile/:adminID", func(c *fiber.Ctx) error {
-		// Get the adminID parameter from the request
-		adminID := c.Params("adminID")
+	admin.Post("/login", s.loginAdmin)
+	admin.Get("/profile", s.getAdminProfile)
+}
 
-		// Call GetProfile method with the adminID parameter
-		profile, err := s.adminController.GetAdminProfile(adminID)
-		if err != nil {
-			return err
-		}
+func (s *Server) loginAdmin(c *fiber.Ctx) error {
+	adminID := c.FormValue("admin_id")
+	password := c.FormValue("password")
 
-		// Return the profile as JSON response
-		return c.JSON(profile)
-	})
-	// Add more routes as needed
+	admin, err := s.adminController.AuthenticateAdmin(adminID, password)
+	if err != nil {
+		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{"error": err.Error()})
+	}
+
+	return c.JSON(admin)
+}
+
+func (s *Server) getAdminProfile(c *fiber.Ctx) error {
+	adminID := c.Query("admin_id")
+
+	admin, err := s.adminController.GetAdminProfile(adminID)
+	if err != nil {
+		return c.Status(fiber.StatusNotFound).JSON(fiber.Map{"error": err.Error()})
+	}
+
+	return c.JSON(admin)
 }

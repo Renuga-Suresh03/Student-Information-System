@@ -10,7 +10,7 @@ type Attendance struct {
 	ID                   primitive.ObjectID `bson:"_id,omitempty"`
 	StudentID            string             `bson:"student_id"`
 	AttendanceRecords    []AttendanceRecord `bson:"attendance_records"`
-	AttendancePercentage float64            `bson:"attendance_percentage"`
+	AttendancePercentage int32              `bson:"attendance_percentage"`
 }
 
 type AttendanceRecord struct {

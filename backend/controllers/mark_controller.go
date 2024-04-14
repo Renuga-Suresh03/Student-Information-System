@@ -56,7 +56,8 @@ func (mc *MarkController) AddMark(regNo string, examNo int, subjectCode string, 
 
 	return nil
 }
-func (mc *MarkController) GetMarks(regNo string, examNo int) ([]models.Mark, error) {
+
+/*func (mc *MarkController) GetMarks(regNo string, examNo int) ([]models.Mark, error) {
 	// Fetch student details from the database based on regNo
 	student, err := mc.GetStudentByRegNo(regNo)
 	if err != nil {
@@ -79,6 +80,28 @@ func (mc *MarkController) GetMarks(regNo string, examNo int) ([]models.Mark, err
 	}
 
 	return marks, nil
+}*/
+
+func (mc *MarkController) GetMarks(regNo string, examNo int) ([]models.SubjectMark, error) {
+	// Fetch student details from the database based on regNo
+	student, err := mc.GetStudentByRegNo(regNo)
+	if err != nil {
+		return nil, err
+	}
+
+	// Fetch marks from the Mark collection based on student ID and exam number
+	markCollection := mc.DB.Collection("Mark")
+	filter := bson.M{"student_id": student.ID.Hex(), "exam_no": examNo}
+	var mark models.Mark
+	err = markCollection.FindOne(context.Background(), filter).Decode(&mark)
+	if err != nil {
+		return nil, err
+	}
+
+	// Extract subject marks from the Mark object
+	subjectMarks := mark.Subjects
+
+	return subjectMarks, nil
 }
 
 func (mc *MarkController) GetStudentByRegNo(regNo string) (models.Student, error) {

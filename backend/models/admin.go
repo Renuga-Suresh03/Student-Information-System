@@ -9,6 +9,7 @@ import (
 type Admin struct {
 	ID              primitive.ObjectID `bson:"_id,omitempty"`
 	AdminID         string             `bson:"admin_id"`
+	Password        string             `bson:"password"`
 	Name            string             `bson:"name"`
 	DateOfBirth     time.Time          `bson:"date_of_birth"`
 	Department      string             `bson:"department"`

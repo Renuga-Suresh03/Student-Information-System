@@ -66,7 +66,7 @@
 <body>
     <div class="login-box">
         <h2>Admin Login</h2>
-        <form action="admin_login.php" method="post">
+        <form id="adminLoginForm" action="admin_login.php" method="post" onsubmit="return validateForm()">
             <div class="form-group">
                 <label for="adminId">Admin ID:</label>
                 <input type="text" id="adminId" name="adminId" required>
@@ -80,5 +80,19 @@
             </div>
         </form>
     </div>
+
+    <script>
+        function validateForm() {
+            var adminId = document.getElementById("adminId").value;
+            var password = document.getElementById("password").value;
+
+            if (adminId.trim() === "" || password.trim() === "") {
+                alert("Admin ID and Password are required!");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
 </body>
 </html>

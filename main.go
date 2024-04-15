@@ -1,10 +1,13 @@
 package main
 
-/*import (
+import (
 	"context"
-	"controllers/backend/controllers"
-	"fmt"
+	"controllers/server"
 	"log"
+	"net/http"
+	"os"
+	"os/signal"
+	"time"
 
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -12,32 +15,47 @@ package main
 
 func main() {
 	// Connect to MongoDB
-	clientOptions := options.Client().ApplyURI("mongodb://localhost:27017")
-	client, err := mongo.Connect(context.Background(), clientOptions)
+	client, err := mongo.NewClient(options.Client().ApplyURI("mongodb://localhost:27017"))
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer client.Disconnect(context.Background())
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancel()
+	err = client.Connect(ctx)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer client.Disconnect(ctx)
 
-	// Select database
+	// Get database handle
 	db := client.Database("STU")
 
-	// Initialize AttendanceController
-	attendanceController := controllers.NewAttendanceController(db)
+	// Set up the server
+	router := server.SetupServer(db)
 
-	// Call AddAttendance
-
-	regNo := "2023001"
-	attendanceRecords, err := attendanceController.GetAttendance(regNo)
-	if err != nil {
-		log.Fatal(err)
+	// Start the server
+	srv := &http.Server{
+		Addr:    ":8080",
+		Handler: router,
 	}
 
-	// Print the attendance records
-	fmt.Println("Attendance records for", regNo)
-	for _, record := range attendanceRecords {
-		fmt.Println("Date:", record.Date.Format("2006-01-02"), "Status:", record.Status)
-	}
+	go func() {
+		if err := srv.ListenAndServe(); err != nil && err != http.ErrServerClosed {
+			log.Fatalf("listen: %s\n", err)
+		}
+	}()
+	log.Printf("Server started")
 
+	// Gracefully shutdown the server
+	quit := make(chan os.Signal, 1) // Buffered channel
+	signal.Notify(quit, os.Interrupt)
+	<-quit
+	log.Println("Shutting down server...")
+
+	ctx, cancel = context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+	if err := srv.Shutdown(ctx); err != nil {
+		log.Fatal("Server forced to shutdown:", err)
+	}
+	log.Println("Server exiting")
 }
-*/

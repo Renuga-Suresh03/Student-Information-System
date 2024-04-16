@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/frontend/css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Page</title>
+    
+</head>
+<body>
+    
+        
+    <nav>
+        <ul>
+            <table>
+           <tr> <h1>Welcome to Jeppiaar</h1>
+           <th> <li><a href="/frontend/pages/home.html" class="active">Home</a></li>
+            <li><a href="/frontend/pages/profile.html">Profile</a></li>
+            <li><a href="/frontend/pages/mark.html">Marks</a></li>
+            <li><a href="/frontend/pages/attendance.html">Attendance</a></li></th>
+           </tr>
+            </table>
+        </ul>
+    </div>
+    </nav>
+    <div class="container">
+    <button onclick="showCurrentSemester()">Show Current Semester</button>
+    <div id="currentSemester"></div>
+    <div id="assessmentTable"></div>
+</div>
+    
+    <!--<div class="container">
+        <h1>Welcome to Jeppiaar</h1>
+        <button onclick="showCurrentSemester()">Show Current Semester</button>
+        <div id="currentSemester"></div>
+        <div id="assessmentTable"></div>
+    </div>-->
+    
+    <script>
+        function showCurrentSemester() {
+            var currentSemester = 1; // Example: Current semester number
+            document.getElementById('currentSemester').innerHTML = "Current Semester: " + currentSemester;
+            
+            // Assuming this is the response from server after clicking the button
+            var sampleTable = `
+                
+                <table>
+                    <tr>
+                        <th>SUBJECT_CODE</th>
+                        <th>MARK</th>
+                        <th>PASS/FAIL</th>
+                        <th>TOTAL</th>
+                        <th>RANK</th>
+                    </tr>
+                    <tr>
+                        <td>101</td>
+                        <td>85</td>
+                        <td>Pass</td>
+                        <td>100</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>102</td>
+                        <td>70</td>
+                        <td>Pass</td>
+                        <td>100</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>103</td>
+                        <td>60</td>
+                        <td>Fail</td>
+                        <td>100</td>
+                        <td>3</td>
+                    </tr>
+                </table>
+            `;
+            
+            document.getElementById('assessmentTable').innerHTML = sampleTable;
+        }
+    </script>
+</body>
+</html>

@@ -24,9 +24,38 @@
     </div>
     </nav>
     <div class="container">
-    <button onclick="showCurrentSemester()">Show Current Semester</button>
-    <div id="currentSemester"></div>
-    <div id="assessmentTable"></div>
+
+
+        <table>
+            <tr>
+                <th>SUBJECT_CODE</th>
+                <th>MARK</th>
+                <th>PASS/FAIL</th>
+                <th>TOTAL</th>
+                <th>RANK</th>
+            </tr>
+            <tr>
+                <td>101</td>
+                <td>85</td>
+                <td>Pass</td>
+                <td>100</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>102</td>
+                <td>70</td>
+                <td>Pass</td>
+                <td>100</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>103</td>
+                <td>60</td>
+                <td>Fail</td>
+                <td>100</td>
+                <td>3</td>
+            </tr>
+        </table>
 </div>
     
     <!--<div class="container">
@@ -36,7 +65,7 @@
         <div id="assessmentTable"></div>
     </div>-->
     
-    <script>
+    <!--<script>
         function showCurrentSemester() {
             var currentSemester = 1; // Example: Current semester number
             document.getElementById('currentSemester').innerHTML = "Current Semester: " + currentSemester;
@@ -78,6 +107,6 @@
             
             document.getElementById('assessmentTable').innerHTML = sampleTable;
         }
-    </script>
+    </script>-->
 </body>
 </html>

@@ -1,72 +1,4 @@
-/* Reset default margin and padding */
-/*body, ul {
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Style navigation bar */
-  /*nav {
-    background-color: #333;
-  }
-  
-  nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  nav ul li {
-    display: inline;
-  }
-  
-  nav ul li a {
-    display: inline-block;
-    padding: 10px;
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  /* Style container */
-  /*.container {
-    margin: 20px;
-  }
-  
-  /* Style form elements */
-  /*form {
-    margin-bottom: 20px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  input[type="text"],
-  input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  button {
-    padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #555;
-  }
-  */
-
-  /* admin.css */
-
-/* admin.css */
+/* Common styles for all pages */
 body {
   background-color: #f2f2f2; /* dull white background */
   margin: 0;
@@ -101,13 +33,12 @@ nav ul li {
 }
 
 nav ul li a {
-  text-decoration: none;
-  color: #000000; /* black color for text */
-  position: relative;
-  display: flex; /* make the link a flex container */
-  align-items: center; /* center align the icon and text vertically */
   font-size: 16px; /* Example font size of the navigation bar text */
-  margin: 0 5px; /* Add 5px margin to both sides */
+  display: flex; /* Align items vertically */
+  align-items: center; /* Center align vertically */
+  position: relative; /* Add position relative */
+  color: #000; /* Set default text color to black */
+  text-decoration: none; /* Remove default underline */
 }
 
 nav ul li a::before {
@@ -126,7 +57,6 @@ nav ul li a.active::before { /* Style the icon on hover and when active */
   border-bottom: 2px solid #2832C2; /* Add line under icon and text */
 }
 
-
 nav ul li a:hover,
 nav ul li a.active { /* blue color when active */
   color: #2832C2; /* blue color */
@@ -139,26 +69,41 @@ nav ul li a.active { /* blue color when active */
   margin: 20px auto; /* center align container */
   width: 90%; /* set width for container */
   border-radius: 20px; /* rounded corners */
+  overflow: hidden; /* ensure the content doesn't protrude from the rounded corners */
 }
-
 
 h2 {
   color: #2832C2; /* blue color for header */
 }
 
 
-/*admin profile css*/
 
+
+/* Specific styles for profile page */
 .profile {
   display: flex;
 }
 
 .profile-icon {
   width: 30%;
+  position: relative; /* Position relative for absolute positioning */
 }
 
 .profile-icon img {
   width: 100%;
+}
+
+.logout-button {
+  position: absolute;
+  bottom: 10px; /* Adjust as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  background-color: #007bff; /* Blue color */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .profile-details {
@@ -182,4 +127,45 @@ h2 {
 
 .detail-value {
   margin-top: 5px;
+}
+
+
+/* Specific styles for attendance page */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+select {
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.low-percentage {
+  background-color: #FFCCCC; /* Light red background color for low percentage */
 }

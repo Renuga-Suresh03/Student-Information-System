@@ -237,3 +237,61 @@ document.getElementById("saveBtn").addEventListener('click', function() {
     // Call updateCalculations to update total, percentage, and rank
     updateCalculations();
 });
+
+
+
+// Function to update result based on percentage
+// Function to update result based on percentage
+function updateCalculations() {
+    var rows = document.querySelectorAll("#marksTable tbody tr");
+
+    // Update total marks and calculate percentage for each row
+    rows.forEach(function(row, index) {
+        var subjects = row.querySelectorAll('.subjectInput');
+        var total = 0;
+        var isAbsent = false;
+
+        // Calculate total marks and check for absence or marks less than 50
+        subjects.forEach(function(subject) {
+            var mark = parseInt(subject.value) || 0;
+            if (subject.value === '-' || mark < 50) {
+                isAbsent = true;
+            }
+            total += mark;
+        });
+
+        var totalCell = row.cells[5];
+        var percentageCell = row.cells[6];
+        var rankCell = row.cells[7];
+
+        totalCell.textContent = isAbsent ? '-' : total;
+        percentageCell.textContent = isAbsent ? '-' : ((total / (subjects.length * 100)) * 100).toFixed(2) + "%";
+        rankCell.textContent = isAbsent ? '-' : ''; // Clear rank for absent students
+    });
+
+    // Update rank based on percentage for non-absent students
+    var sortedRows = Array.from(rows).filter(row => row.cells[7].textContent !== '-').sort((a, b) => {
+        var percentageA = parseFloat(a.cells[6].textContent);
+        var percentageB = parseFloat(b.cells[6].textContent);
+        return percentageB - percentageA;
+    });
+
+    var previousRank = 0;
+    var previousPercentage = 0;
+    sortedRows.forEach(function(sortedRow, sortedIndex) {
+        var currentPercentage = parseFloat(sortedRow.cells[6].textContent);
+        var currentRank = sortedIndex + 1;
+
+        // Update rank only if the percentage is different from the previous row
+        if (currentPercentage !== previousPercentage) {
+            var rankCell = sortedRow.cells[7];
+            rankCell.textContent = currentRank;
+            previousRank = currentRank;
+        } else {
+            // If the percentage is the same as the previous row, use the previous rank
+            var rankCell = sortedRow.cells[7];
+            rankCell.textContent = previousRank;
+        }
+        previousPercentage = currentPercentage;
+    });
+}

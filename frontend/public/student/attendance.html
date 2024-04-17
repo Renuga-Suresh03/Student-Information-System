@@ -14,11 +14,11 @@
         <a href="home.html">Home</a>
         <a href="profile.html">Profile</a>
         <div class="dropdown">
-            <button class="dropbtn" id="marksBtn" onclick="changeColor(this)">Marks</button>
-            <div class="dropdown-content">
-                <a href="marks.html#assessment1">Assessment 1</a>
-                <a href="marks.html#assessment2">Assessment 2</a>
-                <a href="marks.html#model">Model</a>
+            <button class="dropbtn" id="marksBtn" onclick="toggleDropdown()">Marks</button>
+            <div class="dropdown-content" id="marksDropdown">
+                <a href="marks.html#assessment1" onclick="markClicked()">IAT 1</a>
+                <a href="marks.html#assessment2" onclick="markClicked()">IAT 2</a>
+                <a href="marks.html#model" onclick="markClicked()">Model</a>
             </div>
         </div>
         <a class="active" href="#attendance">Attendance</a>
@@ -29,8 +29,25 @@
     </div>
 
     <script>
-        function changeColor(btn) {
-            btn.classList.toggle("active");
+        function toggleDropdown() {
+            document.getElementById("marksDropdown").classList.toggle("show");
+        }
+
+        function markClicked() {
+            document.getElementById("marksBtn").classList.add("active");
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
         }
     </script>
 </body>

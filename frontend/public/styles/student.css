@@ -1,86 +1,99 @@
 body {
-    font-family: 'Montserrat', sans-serif;
+    background-color: #f2f2f2; /* dull white background */
     margin: 0;
     padding: 0;
 }
 
 .header {
-    background-color: #0008a7;
-    color: white;
-    text-align: center;
+    background-color: #2832C2; /* blue background for header */
+    color: #ffffff; /* white text */
+    text-align: center; /* center align header text */
     padding: 10px;
-    font-size: 14px;
-    font-weight: 500;
 }
 
 .navbar {
-    overflow: hidden;
-    background-color: white;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff; /* white navigation bar */
+    padding: 10px; /* padding for the navigation bar */
     display: flex;
-    justify-content: space-between;
-    padding: 0 100px;
+    justify-content: center; /* center align navigation items */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow downwards */
 }
 
-.navbar a {
-    color: black;
-    text-align: center;
-    padding: 14px 20px;
+.navbar a, .dropbtn {
     text-decoration: none;
+    color: #000000; /* black color for text */
+    font-size: 16px; /* Example font size of the navigation bar text */
+    margin: 0 50px; /* Add 50px margin to both sides */
 }
 
-.navbar a:hover {
-    color: #0008a7;
+.navbar a::before, .dropbtn::before {
+    content: "";
+    display: inline-block;
+    width: 16px; /* Match the font size */
+    height: 16px; /* Match the font size */
+    background-image: url('../assests/tick.png'); /* URL of your icon image */
+    background-size: contain; /* Adjust to contain or cover the image */
+    margin-right: 5px; /* Space between icon and text */
+    vertical-align: middle; /* Align vertically with text */
 }
 
-.navbar .active {
-    color: #0008a7;
+.navbar a:hover::before,
+.navbar a.active::before,
+.dropbtn:hover::before,
+.dropbtn.active::before { /* Style the icon on hover and when active */
+    border-bottom: 2px solid #2832C2; /* Add line under icon and text */
+}
+
+.navbar a:hover,
+.navbar a.active,
+.dropbtn:hover,
+.dropbtn.active { /* blue color when active */
+    color: #2832C2; /* blue color */
 }
 
 .dropdown {
-    float: left;
-    overflow: hidden;
-}
-
-.dropdown .dropbtn {
-    font-size: 16px;
-    border: none;
-    outline: none;
-    color: black;
-    padding: 14px 20px;
-    background-color: inherit;
-    font-family: inherit;
-    margin: 0;
+    position: relative;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: white;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     z-index: 1;
 }
 
 .dropdown-content a {
     color: black;
-    padding: 12px 20px;
+    padding: 12px 16px;
     text-decoration: none;
     display: block;
-    text-align: left;
 }
 
 .dropdown-content a:hover {
-    background-color: #f9f9f9;
+    background-color: #f1f1f1;
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
-#marksBtn.active {
-    color: #0008a7;
+.dropbtn {
+    border: none;
+    background-color: transparent; /* Make background transparent */
 }
 
 .content {
     padding: 20px;
+    text-align: center;
+}
+
+h2 {
+    color: #2832C2; /* blue color for header */
+}
+
+/* Remove tick image for dropdown options */
+.dropdown-content a::before {
+    content: none;
 }

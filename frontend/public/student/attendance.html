@@ -7,18 +7,31 @@
     <link rel="stylesheet" href="../styles/student.css">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="profile.html">Profile</a></li>
-            <li><a href="marks.html">Marks</a></li>
-            <li><a href="attendance.html">Attendance</a></li>
-        </ul>
-    </nav>
-    <div class="container">
-        <h1>Student Attendance</h1>
-        <p>Add your content here...</p>
+    <div class="header">
+        <h1>Welcome Student</h1>
     </div>
+    <div class="navbar">
+        <a href="home.html">Home</a>
+        <a href="profile.html">Profile</a>
+        <div class="dropdown">
+            <button class="dropbtn" id="marksBtn" onclick="changeColor(this)">Marks</button>
+            <div class="dropdown-content">
+                <a href="marks.html#assessment1">Assessment 1</a>
+                <a href="marks.html#assessment2">Assessment 2</a>
+                <a href="marks.html#model">Model</a>
+            </div>
+        </div>
+        <a class="active" href="#attendance">Attendance</a>
+    </div>
+    <div class="content">
+        <h2>Student Attendance</h2>
+        <p>This is the attendance page for students.</p>
+    </div>
+
+    <script>
+        function changeColor(btn) {
+            btn.classList.toggle("active");
+        }
+    </script>
 </body>
 </html>
-``

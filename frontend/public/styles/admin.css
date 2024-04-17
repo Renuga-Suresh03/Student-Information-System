@@ -1,11 +1,11 @@
 /* Reset default margin and padding */
-body, ul {
+/*body, ul {
     margin: 0;
     padding: 0;
   }
   
   /* Style navigation bar */
-  nav {
+  /*nav {
     background-color: #333;
   }
   
@@ -27,12 +27,12 @@ body, ul {
   }
   
   /* Style container */
-  .container {
+  /*.container {
     margin: 20px;
   }
   
   /* Style form elements */
-  form {
+  /*form {
     margin-bottom: 20px;
   }
   
@@ -62,4 +62,124 @@ body, ul {
   button:hover {
     background-color: #555;
   }
-  
+  */
+
+  /* admin.css */
+
+/* admin.css */
+body {
+  background-color: #f2f2f2; /* dull white background */
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #2832C2; /* blue background for header */
+  color: #ffffff; /* white text */
+  text-align: center; /* center align header text */
+  padding: 10px;
+}
+
+nav {
+  background-color: #ffffff; /* white navigation bar */
+  padding: 10px; /* padding for the navigation bar */
+  display: flex;
+  justify-content: center; /* center align navigation items */
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  width: 80%; /* Set the width of the nav to match the container */
+}
+
+nav ul li {
+  flex: 1; /* Each list item takes equal space */
+  text-align: center; /* Center align text */
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #000000; /* black color for text */
+  position: relative;
+  display: flex; /* make the link a flex container */
+  align-items: center; /* center align the icon and text vertically */
+  font-size: 16px; /* Example font size of the navigation bar text */
+  margin: 0 5px; /* Add 5px margin to both sides */
+}
+
+nav ul li a::before {
+  content: "";
+  display: inline-block;
+  width: 16px; /* Match the font size */
+  height: 16px; /* Match the font size */
+  background-image: url('../assests/tick.png'); /* URL of your icon image */
+  background-size: contain; /* Adjust to contain or cover the image */
+  margin-right: 5px; /* Space between icon and text */
+  vertical-align: middle; /* Align vertically with text */
+}
+
+nav ul li a:hover::before,
+nav ul li a.active::before { /* Style the icon on hover and when active */
+  border-bottom: 2px solid #2832C2; /* Add line under icon and text */
+}
+
+
+nav ul li a:hover,
+nav ul li a.active { /* blue color when active */
+  color: #2832C2; /* blue color */
+  text-decoration: none; /* Remove default underline */
+}
+
+.container {
+  background-color: #ffffff; /* white background for container */
+  padding: 20px;
+  margin: 20px auto; /* center align container */
+  width: 90%; /* set width for container */
+  border-radius: 20px; /* rounded corners */
+}
+
+
+h2 {
+  color: #2832C2; /* blue color for header */
+}
+
+
+/*admin profile css*/
+
+.profile {
+  display: flex;
+}
+
+.profile-icon {
+  width: 30%;
+}
+
+.profile-icon img {
+  width: 100%;
+}
+
+.profile-details {
+  width: 70%;
+}
+
+.details {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.detail {
+  width: 50%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.detail-label {
+  font-weight: bold;
+}
+
+.detail-value {
+  margin-top: 5px;
+}

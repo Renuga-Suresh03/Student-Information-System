@@ -7,17 +7,44 @@
   <link rel="stylesheet" href="../styles/admin.css">
 </head>
 <body>
+  <header>
+    <h1>Welcome Admin</h1>
+  </header>
   <nav>
     <ul>
       <li><a href="home.html">Home</a></li>
-      <li><a href="profile.html">Profile</a></li>
+      <li><a href="profile.html" class="active">Profile</a></li>
       <li><a href="marks.html">Marks</a></li>
       <li><a href="attendance.html">Attendance</a></li>
     </ul>
   </nav>
   <div class="container">
-    <h2>Admin Profile</h2>
-    <p>Add content here...</p>
+    <div class="profile">
+      <div class="profile-icon">
+        <img src="../assests/profile.png" alt="Profile Icon">
+      </div>
+      <div class="profile-details">
+        <h2>Admin Profile</h2>
+        <div class="details">
+          <div class="detail">
+            <div class="detail-label">Name:</div>
+            <div class="detail-value">John Doe</div>
+          </div>
+          <div class="detail">
+            <div class="detail-label">Email:</div>
+            <div class="detail-value">admin@example.com</div>
+          </div>
+          <div class="detail">
+            <div class="detail-label">Contact Number:</div>
+            <div class="detail-value">+1234567890</div>
+          </div>
+          <div class="detail">
+            <div class="detail-label">User Role:</div>
+            <div class="detail-value">Admin</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 </html>

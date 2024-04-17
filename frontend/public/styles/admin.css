@@ -1,0 +1,65 @@
+/* Reset default margin and padding */
+body, ul {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Style navigation bar */
+  nav {
+    background-color: #333;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline;
+  }
+  
+  nav ul li a {
+    display: inline-block;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  /* Style container */
+  .container {
+    margin: 20px;
+  }
+  
+  /* Style form elements */
+  form {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #555;
+  }
+  

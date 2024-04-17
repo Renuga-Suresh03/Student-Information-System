@@ -65,5 +65,5 @@ function displayAssessmentMarks(examType) {
 // Function to display attendance records for a student
 function displayAttendanceRecords() {
     // Implement functionality to fetch and display attendance records
-    console.log('Displaying attendance records');
+    console.log('Displaying Attendance records');
 }

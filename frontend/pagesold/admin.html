@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="/frontend/css/student.css">
+    <link rel="stylesheet" href="/frontendold/cssold/admin.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
@@ -19,9 +19,9 @@
         }
 
         .login-box {
-            background-color: transparent;
+            background-color:transparent;
             padding: 20px;
-            border-radius: 8px;
+            border: radius 4px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 300px;
         }
@@ -53,10 +53,9 @@
             padding: 10px;
             background-color: #007bff;
             color: #fff;
-            border: 5;
-            border-radius: 2px;
+            border: none;
+            border-radius: 4px;
             cursor: pointer;
-            text-align: center;
         }
 
         .form-group button:hover {
@@ -66,27 +65,33 @@
 </head>
 <body>
     <div class="login-box">
-        <h2>Student Login</h2>
-        <form id="loginForm" onsubmit="submitForm(); return false;">
+        <h2>Admin Login</h2>
+        <form id="adminLoginForm" action="admin_login.php" method="post" onsubmit="return validateForm()">
             <div class="form-group">
-                <label for="regNo">Registration Number:</label>
-                <input type="text" id="regNo" name="regNo" required>
+                <label for="adminId">Admin ID:</label>
+                <input type="text" id="adminId" name="adminId" required>
             </div>
             <div class="form-group">
-                <label for="dob">Date of Birth:</label>
-                <input type="date" id="dob" name="dob" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
             </div>
-    
-               <a href="/frontend/pages/home.html"> <button type="submit">Login</button></a>
-        
+            <div class="form-group">
+                <button type="submit">Login</button>
+            </div>
         </form>
     </div>
 
     <script>
-        function submitForm() {
-            var regNo = document.getElementById("regNo").value;
-            var dob = document.getElementById("dob").value;
-            alert("Registration Number: " + regNo + "\nDate of Birth: " + dob);
+        function validateForm() {
+            var adminId = document.getElementById("adminId").value;
+            var password = document.getElementById("password").value;
+
+            if (adminId.trim() === "" || password.trim() === "") {
+                alert("Admin ID and Password are required!");
+                return false;
+            }
+
+            return true;
         }
     </script>
 </body>

@@ -1,32 +1,35 @@
+/*Header and Navigation Bar*/
 body {
     background-color: #f2f2f2; /* dull white background */
     margin: 0;
     padding: 0;
-}
-
-.header {
+  }
+  
+  .header {
     background-color: #2832C2; /* blue background for header */
     color: #ffffff; /* white text */
     text-align: center; /* center align header text */
     padding: 10px;
-}
-
-.navbar {
+  }
+  
+  .navbar {
     background-color: #ffffff; /* white navigation bar */
     padding: 10px; /* padding for the navigation bar */
     display: flex;
     justify-content: center; /* center align navigation items */
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow downwards */
-}
-
-.navbar a, .dropbtn {
+  }
+  
+  .navbar a,
+  .dropbtn {
     text-decoration: none;
     color: #000000; /* black color for text */
     font-size: 16px; /* Example font size of the navigation bar text */
     margin: 0 50px; /* Add 50px margin to both sides */
-}
-
-.navbar a::before, .dropbtn::before {
+  }
+  
+  .navbar a::before,
+  .dropbtn::before {
     content: "";
     display: inline-block;
     width: 16px; /* Match the font size */
@@ -35,65 +38,207 @@ body {
     background-size: contain; /* Adjust to contain or cover the image */
     margin-right: 5px; /* Space between icon and text */
     vertical-align: middle; /* Align vertically with text */
-}
-
-.navbar a:hover::before,
-.navbar a.active::before,
-.dropbtn:hover::before,
-.dropbtn.active::before { /* Style the icon on hover and when active */
+  }
+  
+  .navbar a.active::before,
+  .dropbtn.active::before { /* Style the icon when active */
     border-bottom: 2px solid #2832C2; /* Add line under icon and text */
-}
-
-.navbar a:hover,
-.navbar a.active,
-.dropbtn:hover,
-.dropbtn.active { /* blue color when active */
+  }
+  
+  .navbar a.active,
+  .dropbtn.active { /* blue color when active */
     color: #2832C2; /* blue color */
-}
-
-.dropdown {
+  }
+  
+  .navbar a:hover,
+  .dropbtn:hover { /* blue color when hovering */
+    color: #2832C2; /* blue color */
+  }
+  
+  .dropdown {
     position: relative;
-}
-
-.dropdown-content {
+  }
+  
+  .dropdown-content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     z-index: 1;
-}
-
-.dropdown-content a {
+  }
+  
+  .dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-}
-
-.dropdown-content a:hover {
+  }
+  
+  .dropdown-content a:hover {
     background-color: #f1f1f1;
-}
-
-.dropdown:hover .dropdown-content {
+  }
+  
+  .dropdown:hover .dropdown-content {
     display: block;
-}
-
-.dropbtn {
+  }
+  
+  .dropbtn {
     border: none;
     background-color: transparent; /* Make background transparent */
-}
-
-.content {
-    padding: 20px;
-    text-align: center;
-}
-
-h2 {
-    color: #2832C2; /* blue color for header */
-}
-
-/* Remove tick image for dropdown options */
-.dropdown-content a::before {
+  }
+  
+  /* Remove tick image for dropdown options */
+  .dropdown-content a::before {
     content: none;
+  }
+/* Add these styles to the existing student.css file */
+
+.container {
+    background-color:#ffffff; /* white background for container */
+    padding: 20px;
+    margin: 20px auto; /* center align container */
+    width: 80%; /* set width for container */
+    border-radius: 20px; /* rounded corners */
+    overflow: hidden; 
+    height: 30%;
+  }
+/*Attendance*/
+#attendanceTable {
+  width: 40%;
+  height: 10%;
+  margin: 0 auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 20px;
+  border: 2px solid #bcbcbc; /* Grey border */
+  table-layout: fixed;
+  font-size: 14px;
+  background-color: #f2f2f2; /* Light grey background */
+  overflow: hidden; /* Hide sharp corners */
+}
+
+#attendanceTable th,
+#attendanceTable td {
+  height: 10%;
+  padding: 12px;
+  border: 1px solid #d1cece; /* Grey border */
+  background-color: white;
+  text-align: center;
+}
+
+#attendanceTable th {
+  background-color: #e0e0e0; /* Light grey background for header */
+  font-weight: bold;
+ 
+}
+
+.attendance-absent {
+  background-color: #ffcccc; /* Light red background for absent */
+}
+
+.attendance-percentage {
+  width: 200px;
+  height: 30px;
+  background-color: #ffffff; /* White background */
+  border: 1px solid #bcbcbc; /* Grey border */
+  border-radius: 5px;
+  margin-top: 10px;
+  text-align: center;
+  line-height: 30px;
+  font-weight: bold;
+  color: #333333; /* Dark grey text color */
+  align-items: center;
+  text-align: center;
+  font-size: 15px;
+}
+
+/* Specific styles for profile page */
+.profile {
+    display: flex;
+  }
+  
+  .profile-icon {
+    width: 30%;
+    position: relative; /* Position relative for absolute positioning */
+  }
+  
+  .profile-icon img {
+    width: 100%;
+  }
+  
+  .logout-button {
+    position: absolute;
+    bottom: 10px; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background-color: #007bff; /* Blue color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .profile-details {
+    width: 70%;
+  }
+  
+  .details {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .detail {
+    width: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  .detail-label {
+    font-weight: bold;
+  }
+  
+  .detail-value {
+    margin-top: 5px;
+  }
+
+/**marks**/
+h2 {
+  color: #2832C2; /* blue color for header */
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  text-align: center;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tfoot td {
+  font-weight: bold;
+}
+
+.fail {
+  background-color: #FFCCCC;
+}
+
+.percentage-box {
+  width: 250px;
+  height: 40px;
+  background-color: #ffffff;
+  border: 1px solid #696973;
+  border-radius: 5px;
+  margin-top: 20px;
+  text-align: center;
+  line-height: 40px;
 }

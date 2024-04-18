@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IAT 1</title>
+    <link rel="stylesheet" href="../styles/student.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome Admin</h1>
+    </div>
+    <div class="navbar">
+        <a href="home.html">Home</a>
+        <a href="profile.html">Profile</a>
+        <div class="dropdown">
+            <a href="#" class="active dropbtn">Marks</a>
+            <div class="dropdown-content">
+                <a href="assessment1.html">IAT 1</a>
+                <a href="assessment2.html">IAT 2</a>
+                <a href="model.html">Model</a>
+            </div>
+        </div>
+        <a href="attendance.html">Attendance</a>
+    </div>
+    <div class="container">
+        <h2 >IAT 1</h2>
+        <table id="marksTable">
+            <thead>
+                <tr>
+                    <th>Sl. No</th>
+                    <th>Subject Code</th>
+                    <th>Subject Name</th>
+                    <th>Marks</th>
+                    <th>Percentage</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Marks data will be dynamically added here -->
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3">Total</td>
+                    <td id="total"></td>
+                    <td colspan="2"></td>
+                </tr>
+            </tfoot>
+        </table>
+        <div class="percentage-box" id="finalPercentageBox"></div>
+    </div>
+    <script src="../js/student.js"></script>
+
+</body>
+</html>

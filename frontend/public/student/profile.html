@@ -11,27 +11,76 @@
         <h1>Welcome Student</h1>
     </div>
     <div class="navbar">
-        <a href="home.html">Home</a>
-        <a class="active" href="#profile">Profile</a>
-        <div class="dropdown">
-            <button class="dropbtn" id="marksBtn" onclick="changeColor(this)">Marks</button>
-            <div class="dropdown-content">
-                <a href="marks.html#assessment1">IAT 1</a>
-                <a href="marks.html#assessment2">IAT 2</a>
-                <a href="marks.html#model">Model</a>
-            </div>
-        </div>
+      <a href="home.html">Home</a>
+      <a href="profile.html">Profile</a>
+      <div class="dropdown">
+          <a href="#" >Marks</a>
+          <div class="dropdown-content">
+            <a href="assessment1.html">IAT 1</a>
+            <a href="assessment2.html">IAT 2</a>
+            <a href="model.html">Model</a>
+          </div>
+      </div>
         <a href="attendance.html">Attendance</a>
     </div>
-    <div class="content">
-        <h2>Student Profile</h2>
-        <p>This is the profile page for students.</p>
-    </div>
+    <div class="container">
+        <div class="profile">
+          <div class="profile-icon">
+            <img src="../assests/profile.png" alt="Profile Icon">
+            
+          </div>
+          <div class="profile-details">
+            <h2></h2>
+            <div class="details">
+              <div class="detail">
+                <div class="detail-label">Name:</div>
+                <div class="detail-value">Renuga</div>
+              </div>
+              <div class="detail">
+                <div class="detail-label">Reg No</div>
+                <div class="detail-value">310821104078</div>
+              </div>
+              <div class="detail">
+                <div class="detail-label">Email:</div>
+                <div class="detail-value">renuga@example.com</div>
+              </div>
+              <div class="detail">
+                <div class="detail-label">Contact Number:</div>
+                <div class="detail-value">+91 9360480003</div>
+              </div>
+              <div class="detail">
+                <div class="detail-label">Year:</div>
+                <div class="detail-value">3</div>
+              </div>
+              <div class="detail">
+                <div class="detail-label">Department:</div>
+                <div class="detail-value">Computer Science</div>
+              </div>
+              <div class="detail">
+                <div class="detail-label">Section:</div>
+                <div class="detail-value">B</div>
+              </div>
+              <div class="detail">
+                <div class="detail-label">Year of Joining:</div>
+                <div class="detail-value">2021</div>
+              </div>
+              <div class="detail">
+                <div class="detail-label">Year of Passing:</div>
+                <div class="detail-value">2025</div>
+              </div>
+              <div class="detail">
+                <div class="detail-label">Class ID:</div>
+                <div class="detail-value">CS3098</div>
+              </div>
+              <a href="../index.html">
+                <button class="logout-button">Logout</button>
+              </a>          
+            </div>
+            
+          </div>
+        </div>
+      </div>
 
-    <script>
-        function changeColor(btn) {
-            btn.classList.toggle("active");
-        }
-    </script>
+    
 </body>
 </html>

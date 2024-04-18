@@ -7,48 +7,42 @@
     <link rel="stylesheet" href="../styles/student.css">
 </head>
 <body>
-    <div class="header">
-        <h1>Welcome Student</h1>
-    </div>
-    <div class="navbar">
-        <a href="home.html">Home</a>
-        <a href="profile.html">Profile</a>
-        <div class="dropdown">
-            <button class="dropbtn" id="marksBtn" onclick="toggleDropdown()">Marks</button>
-            <div class="dropdown-content" id="marksDropdown">
-                <a href="marks.html#assessment1" onclick="markClicked()">IAT 1</a>
-                <a href="marks.html#assessment2" onclick="markClicked()">IAT 2</a>
-                <a href="marks.html#model" onclick="markClicked()">Model</a>
-            </div>
+    <div >
+        <div class="header">
+            <h1>Welcome Student</h1>
         </div>
-        <a class="active" href="#attendance">Attendance</a>
+        <div class="navbar">
+            <a href="home.html">Home</a>
+            <a href="profile.html">Profile</a>
+            <div class="dropdown">
+                <a href="#" >Marks</a>
+                <div class="dropdown-content">
+                    <a href="assessment1.html">IAT 1</a>
+                <a href="assessment2.html">IAT 2</a>
+                <a href="model.html">Model</a>
+                </div>
+            </div>
+            <a class="active" href="attendance.html">Attendance</a>
+        </div>
+            <a class="active" href="#attendance"></a>
+        </div>
+        <div class="container">
+            <h2></h2>
+            <table id="attendanceTable">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Attendance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Table rows will be added dynamically -->
+                </tbody>
+            </table>
+            <div class="attendance-percentage">Attendance Percentage: <span id="percentage">70</span>%</div>
+        </div>
     </div>
-    <div class="content">
-        <h2>Student Attendance</h2>
-        <p>This is the attendance page for students.</p>
-    </div>
 
-    <script>
-        function toggleDropdown() {
-            document.getElementById("marksDropdown").classList.toggle("show");
-        }
-
-        function markClicked() {
-            document.getElementById("marksBtn").classList.add("active");
-        }
-
-        window.onclick = function(event) {
-            if (!event.target.matches('.dropbtn')) {
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                var i;
-                for (i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show');
-                    }
-                }
-            }
-        }
-    </script>
+    <script src="../js/student.js"></script>
 </body>
 </html>

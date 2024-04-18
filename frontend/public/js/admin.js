@@ -298,12 +298,6 @@ function updateCalculations() {
 */
 
 //js for marks
-// Function to handle adding marks
-function addMarks() {
-    // Implement functionality to add marks
-    console.log('Functionality to add marks');
-}
-
 // Function to calculate and update total, percentage, and rank
 function updateCalculations() {
     var rows = document.querySelectorAll("#marksTable tbody tr");
@@ -320,10 +314,7 @@ function updateCalculations() {
             var mark = parseInt(subject.value) || 0;
             if (subject.value === '-' || mark < 50) {
                 isAbsent = true;
-
-                if (subjectIndex === 0) {
-                    subject.style.backgroundColor = 'yellow'; // Highlight '-' entries in yellow color
-                } else {
+                if (mark < 50) {
                     subject.style.backgroundColor = 'lightcoral'; // Highlight marks less than 50 in light red color
                 }
                 return; // Skip further calculations if mark is absent or less than 50
@@ -347,7 +338,7 @@ function updateCalculations() {
         } else {
             percentageCell.textContent = '-';
             rankCell.textContent = ''; // Clear rank if absent or marks less than 50
-            // Removed return statement here
+            return; // Skip generating rank for this row
         }
 
         // Generate rank for non-absent students
@@ -393,12 +384,4 @@ function generateRank(rows, currentIndex, currentTotal) {
 document.getElementById("saveBtn").addEventListener('click', function() {
     // Call updateCalculations to update total, percentage, and rank
     updateCalculations();
-});
-
-// Event listener for changes in subject marks
-document.querySelectorAll('.subjectInput').forEach(function(subject) {
-    subject.addEventListener('input', function() {
-        // Call updateCalculations to update total, percentage, and rank
-        updateCalculations();
-    });
 });

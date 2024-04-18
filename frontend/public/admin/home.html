@@ -1,172 +1,39 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Home</title>
-  <!-- Link to the external CSS file -->
-  <link rel="stylesheet" href="../styles/admin.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Home</title>
+    <link rel="stylesheet" href="../styles/admin.css">
 </head>
 <body>
-  <header>
-    <h1>Welcome Admin</h1>
-  </header>
-  <nav>
-    <ul>
-      <li><a href="home.html" class="active">Home</a></li>
-      <li><a href="profile.html">Profile</a></li>
-      <li><a href="marks.html">Marks</a></li>
-      <li><a href="attendance.html">Attendance</a></li>
-    </ul>
-  </nav>
-  <div class="container">
-    <div class="left">
-        <img src="../assests/clg.jpg" alt="Image">
+    <div class="header">
+        <h1>Welcome Admin</h1>
     </div>
-    <div class="right">
-        <h2>Welcome to Admin Home Page</h2> 
-        <br>
-        <p>Welcome to Jeppiaar</p>
+    <div class="navbar">
+        <a class="active" href="home.html">Home</a>
+        <a href="profile.html">Profile</a>
+        <div class="dropdown">
+            <a href="#" >Marks</a>
+            <div class="dropdown-content">
+                <a href="mark-IAT1.html">IAT 1</a>
+                <a href="mark-IAT2.html">IAT 2</a>
+                <a href="mark.model.html">Model</a>
+            </div>
+        </div>
+        <a href="attendance.html">Attendance</a>
     </div>
-</div>
-
-</div>
-
+    <div class="container">
+      <div class="left">
+          <img src="../assests/clg.jpg" alt="Image">
+      </div>
+      <div class="right">
+          <h2>Welcome to Admin Home Page</h2> 
+          <br>
+          <p>Welcome to Jeppiaar</p>
+      </div>
+  </div>
 </body>
 </html>
 
 
-<!--<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Home</title>
-  <style>
-    body {
-      background-color: #f2f2f2; /* dull white background */
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #2832C2; /* blue background for header */
-      color: #ffffff; /* white text */
-      text-align: center; /* center align header text */
-      padding: 10px;
-    }
-
-    
-    nav {
-      background-color: #ffffff; /* white navigation bar */
-      padding: 10px; /* padding for the navigation bar */
-      display: flex;
-      justify-content: center; /* center align navigation items */
-    }
-    nav ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      width: 80%; /* Set the width of the nav to match the container */
-    }
-    nav ul li {
-      flex: 1; /* Each list item takes equal space */
-      text-align: center; /* Center align text */
-    }
-
-
-    
-    nav ul li a {
-  font-size: 16px; /* Example font size of the navigation bar text */
-  display: flex; /* Align items vertically */
-  align-items: center; /* Center align vertically */
-  position: relative; /* Add position relative */
-  color: #000; /* Set default text color to black */
-  text-decoration: none; /* Remove default underline */
-}
-
-nav ul li a::before {
-  content: "";
-  display: inline-block;
-  width: 16px; /* Match the font size */
-  height: 16px; /* Match the font size */
-  background-image: url('../assests/tick.png'); /* URL of your icon image */
-  background-size: contain; /* Adjust to contain or cover the image */
-  margin-right: 5px; /* Space between icon and text */
-  vertical-align: middle; /* Align vertically with text */
-}
-
-nav ul li a:hover::before,
-nav ul li a.active::before { /* Style the icon on hover and when active */
-  border-bottom: 2px solid #2832C2; /* Add line under icon and text */
-}
-
-nav ul li a:hover,
-nav ul li a.active { /* blue color when active */
-  color: #2832C2; /* blue color */
-  text-decoration: none; /* Remove default underline */
-}
-
-
-
-    .container {
-  background-color: #ffffff; /* white background for container */
-  padding: 20px;
-  margin: 20px auto; /* center align container */
-  width: 90%; /* set width for container */
-  height: 100%;
-  max-width: 1200px; /* maximum width for container */
-  display: flex;
-  border-radius: 20px; /* rounded corners */
-  overflow: hidden; /* ensure the content doesn't protrude from the rounded corners */
-}
-
-.container .left, .container .right {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.container .left img {
-  width: 100%;
-  height: auto; /* Maintain aspect ratio */
-  max-height: 100%;
-}
-
-    h2 {
-      color: #2832C2; /* blue color for header */
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Welcome Admin</h1>
-  </header>
-  <nav>
-    <ul>
-      <li><a href="home.html" class="active">Home</a></li>
-      <li><a href="profile.html">Profile</a></li>
-      <li><a href="marks.html">Marks</a></li>
-      <li><a href="attendance.html">Attendance</a></li>
-    </ul>
-  </nav>
-  <div class="container">
-    <div class="left">
-        <img src="../assests/clg.jpg" alt="Image">
-    </div>
-    <div class="right">
-        <h2>Welcome to Admin Home Page</h2> 
-        <br>
-        <p>Welcome to Jeppiaar</p>
-    </div>
-</div>
-
-</div>
-
-</body>
-</html>
-
-
--->

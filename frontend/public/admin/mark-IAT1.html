@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IAT 1</title>
+    <link rel="stylesheet" href="../styles/admin.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome Admin</h1>
+    </div>
+    <div class="navbar">
+        <a href="home.html">Home</a>
+        <a href="profile.html">Profile</a>
+        <div class="dropdown">
+            <a href="#" class="active dropbtn">Marks</a>
+            <div class="dropdown-content">
+                <a href="mark-IAT1.html">IAT 1</a>
+                <a href="mark-IAT2.html">IAT 2</a>
+                <a href="mark.model.html">Model</a>
+            </div>
+        </div>
+        <a href="attendance.html">Attendance</a>
+    </div>
+    <div class="container">
+        <h2>IAT 1</h2>
+        <table id="marksTable">
+            <thead>
+                <tr>
+                    <th>Reg_No</th>
+                    <th>Name</th>
+                    <th>Subject 1</th>
+                    <th>Subject 2</th>
+                    <th>Subject 3</th>
+                    <th>Total</th>
+                    <th>Percentage</th>
+                    <th>Rank</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Static data for three students -->
+                <tr>
+                    <td>001</td>
+                    <td>John Doe</td>
+                    <td><input type="number" class="subjectInput" value="0"></td>
+                    <td><input type="number" class="subjectInput" value="0"></td>
+                    <td><input type="number" class="subjectInput" value="0"></td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
+                </tr>
+                <tr>
+                    <td>002</td>
+                    <td>Jane Smith</td>
+                    <td><input type="number" class="subjectInput" value="0"></td>
+                    <td><input type="number" class="subjectInput" value="0"></td>
+                    <td><input type="number" class="subjectInput" value="0"></td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
+                </tr>
+                <tr>
+                    <td>003</td>
+                    <td>Michael Johnson</td>
+                    <td><input type="number" class="subjectInput" value="0"></td>
+                    <td><input type="number" class="subjectInput" value="0"></td>
+                    <td><input type="number" class="subjectInput" value="0"></td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
+                </tr>
+            </tbody>
+        </table>
+        <button id="saveBtn">Save</button>
+    </div>
+    <script src="../js/admin.js"></script>
+
+</body>
+</html>

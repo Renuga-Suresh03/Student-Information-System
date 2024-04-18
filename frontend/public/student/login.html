@@ -4,12 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Login</title>
-    <link rel="stylesheet" href="../styles/student.css">
+    <style>
+        /* CSS styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background-color: #fff; /* White background */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%; /* Larger container width */
+            display: flex; /* Use flexbox */
+            justify-content: space-between; /* Space between elements */
+            align-items: center; /* Center align vertically */
+        }
+
+        .login-container img {
+            width: 50%; /* Set width for the image */
+            border-radius: 8px; /* Rounded corners */
+        }
+
+        .login-container form {
+            width: 40%; /* Set width for the form */
+            margin-left: 20px; /* Add margin to separate from the image */
+        }
+
+        .login-container h1 {
+            margin-bottom: 20px; /* Add margin below heading */
+            color: #2832C2; /* Blue color */
+        }
+
+        .login-container input,
+        .login-container button {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .login-container button {
+            background-color: #2832C2; /* Blue button */
+            color: #fff; /* White text color */
+            cursor: pointer;
+        }
+
+        .login-container button:hover {
+            background-color: #1e2592; /* Darker blue on hover */
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Student Login</h1>
+    <div class="login-container">
+        <img src="../assests/students.jpg" alt="College Image"> <!-- College image on left -->
         <form id="loginForm">
+            <h1>Student Login</h1> <!-- Heading above form -->
             <label for="regNo">Registration Number:</label><br>
             <input type="text" id="regNo" name="regNo"><br>
             <label for="dob">Date of Birth:</label><br>

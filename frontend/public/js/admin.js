@@ -180,7 +180,7 @@ function addAttendance() {
     console.log('Attendance data:', attendanceData);
 }
 
-
+/*
 //js for marks
 
 // Function to calculate and update total, percentage, and rank
@@ -295,3 +295,110 @@ function updateCalculations() {
         previousPercentage = currentPercentage;
     });
 }
+*/
+
+//js for marks
+// Function to handle adding marks
+function addMarks() {
+    // Implement functionality to add marks
+    console.log('Functionality to add marks');
+}
+
+// Function to calculate and update total, percentage, and rank
+function updateCalculations() {
+    var rows = document.querySelectorAll("#marksTable tbody tr");
+    var totalAll = 0;
+
+    // Update total marks and calculate percentage for each row
+    rows.forEach(function(row, index) {
+        var subjects = row.querySelectorAll('.subjectInput');
+        var total = 0;
+        var isAbsent = false;
+
+        // Calculate total marks
+        subjects.forEach(function(subject, subjectIndex) {
+            var mark = parseInt(subject.value) || 0;
+            if (subject.value === '-' || mark < 50) {
+                isAbsent = true;
+
+                if (subjectIndex === 0) {
+                    subject.style.backgroundColor = 'yellow'; // Highlight '-' entries in yellow color
+                } else {
+                    subject.style.backgroundColor = 'lightcoral'; // Highlight marks less than 50 in light red color
+                }
+                return; // Skip further calculations if mark is absent or less than 50
+            } else {
+                subject.style.backgroundColor = ''; // Remove any previous background color
+            }
+            total += mark;
+        });
+
+        var totalCell = row.cells[5];
+        var percentageCell = row.cells[6];
+        var rankCell = row.cells[7];
+
+        // Update total cell
+        totalCell.textContent = isAbsent ? '-' : total;
+
+        // Calculate percentage only if not absent and total is above 50
+        if (!isAbsent && total >= 50) {
+            var percentage = ((total / (subjects.length * 100)) * 100).toFixed(2) + "%";
+            percentageCell.textContent = percentage;
+        } else {
+            percentageCell.textContent = '-';
+            rankCell.textContent = ''; // Clear rank if absent or marks less than 50
+            // Removed return statement here
+        }
+
+        // Generate rank for non-absent students
+        rankCell.textContent = generateRank(rows, index, total);
+
+        // Add total to overall total
+        totalAll += total;
+    });
+
+    // Update total for all rows
+    var totalAllCell = document.getElementById("totalAll");
+    totalAllCell.textContent = totalAll;
+}
+
+// Function to generate rank for non-absent students
+function generateRank(rows, currentIndex, currentTotal) {
+    var sortedRows = Array.from(rows).filter((row, index) => {
+        if (index === currentIndex) return false; // Exclude current row
+        var subjects = row.querySelectorAll('.subjectInput');
+        for (var subject of subjects) {
+            if (subject.value === '-' || parseInt(subject.value) < 50) {
+                return false; // Exclude rows with '-' or marks less than 50
+            }
+        }
+        return true; // Include rows with valid marks
+    }).sort((a, b) => {
+        var totalA = parseInt(a.cells[5].textContent) || 0;
+        var totalB = parseInt(b.cells[5].textContent) || 0;
+        return totalB - totalA;
+    });
+
+    var rank = 1;
+    sortedRows.forEach(function(sortedRow, i) {
+        var currentRowTotal = parseInt(sortedRow.cells[5].textContent) || 0;
+        if (currentRowTotal > currentTotal) {
+            rank = i + 2; // Increment rank for each row with higher total marks
+        }
+    });
+    return rank;
+}
+
+// Event listener for save button
+document.getElementById("saveBtn").addEventListener('click', function() {
+    // Call updateCalculations to update total, percentage, and rank
+    updateCalculations();
+});
+
+// Event listener for changes in subject marks
+document.querySelectorAll('.subjectInput').forEach(function(subject) {
+    subject.addEventListener('input', function() {
+        // Call updateCalculations to update total, percentage, and rank
+        updateCalculations();
+    });
+});

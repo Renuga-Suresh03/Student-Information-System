@@ -1,75 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="../js/admin.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Admin Login</title>
     <style>
         /* CSS styling */
         body {
             font-family: Arial, sans-serif;
-            background-image: url('https://images.unsplash.com/photo-1497864149936-d3163f0c0f4b?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-            background-size: cover;
-            background-position: center;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
-            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            height: 100vh;
         }
 
-        .login-box {
-            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+        .login-container {
+            background-color: #fff; /* White background */
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            max-width: 400px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%; /* Larger container width */
+            display: flex; /* Use flexbox */
+            justify-content: space-between; /* Space between elements */
+            align-items: center; /* Center align vertically */
+        }
+
+        .login-container img {
+            width: 50%; /* Set width for the image */
+            border-radius: 8px; /* Rounded corners */
+        }
+
+        .login-container form {
+            width: 40%; /* Set width for the form */
+            margin-left: 20px; /* Add margin to separate from the image */
+        }
+
+        .login-container h1 {
+            margin-bottom: 20px; /* Add margin below heading */
+            color: #2832C2; /* Blue color */
+        }
+
+        .login-container input,
+        .login-container button {
             width: 100%;
-        }
-
-        .login-box h2 {
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .form-group input {
-            width: 100%;
+            margin-bottom: 10px;
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
+            box-sizing: border-box;
         }
 
-        .form-group button {
-            width: 100%;
-            padding: 10px;
-            background-color: #007bff; /* Blue color theme */
-            color: #fff;
-            border: none;
-            border-radius: 4px;
+        .login-container button {
+            background-color: #2832C2; /* Blue button */
+            color: #fff; /* White text color */
             cursor: pointer;
         }
 
-        .form-group button:hover {
-            background-color: #0056b3; /* Darker shade of blue on hover */
+        .login-container button:hover {
+            background-color: #1e2592; /* Darker blue on hover */
         }
     </style>
 </head>
 <body>
-    <div class="login-box">
-        <h2>Admin Login</h2>
+    <div class="login-container">
+        <img src="../assests/admin.jpg" alt="College Image"> <!-- College image on left -->
         <form id="adminLoginForm" onsubmit="handleAdminLogin(); return false;">
+            <h1>Admin Login</h1> <!-- Heading above form -->
             <div class="form-group">
                 <label for="adminId">Admin ID:</label>
                 <input type="text" id="adminId" name="adminId" required>
@@ -78,11 +77,9 @@
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
             </div>
-            <div class="form-group">
-                <button type="submit">Login</button>
-            </div>
+            <button type="submit">Login</button>
         </form>
     </div>
+    <script src="../js/admin.js"></script> <!-- Include JavaScript for admin login -->
 </body>
 </html>
-

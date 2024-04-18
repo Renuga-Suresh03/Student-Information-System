@@ -236,3 +236,76 @@ button {
 button:hover {
   background-color: #1e2592;
 }
+
+
+/*home page*/
+.container1 {
+  background-color: #ffffff; /* white background for container */
+  padding: 20px;
+  margin: 20px auto; /* center align container */
+  width: 90%; /* set width for container */
+  height: 80%; /* set height for container */
+  border-radius: 20px; /* rounded corners */
+  overflow: hidden; 
+  display: flex; /* Use flexbox */
+}
+
+
+.left {
+  flex: 1; /* Let the image take up 50% of the container */
+}
+
+.right {
+  flex: 1; /* Let the content take up 50% of the container */
+  padding-left: 20px; /* Add padding to create space */
+}
+
+
+
+
+.left img {
+  width: 100%;
+  border-radius: 10px;
+  height: 100%;
+}
+
+
+
+.right h2 {
+  color: #2832C2;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.right p {
+  color: #333;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.button1 {
+  background-color: #2832C2;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  margin: 20px auto;
+  display: block;
+  width: 16%;
+  text-align: center;
+  text-decoration: none;
+}
+
+.button1:hover {
+  background-color: #1e2592;
+  transform: translateY(-2px);
+}
+.clgtitle {
+  font-size: 30px; /* Adjust font size as needed */
+  color: #2832C2; /* Blue color */
+  text-align: center; /* Center align */
+  margin-top: 50px; /* Adjust top margin as needed */
+}

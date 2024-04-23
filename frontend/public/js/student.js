@@ -5,8 +5,6 @@ function handleStudentLogin() {
     var regNo = document.getElementById('regNo').value;
     var dob = document.getElementById('dob').value;
 
-    // Perform client-side validation if needed
-
     // Send login request to backend API
     fetch('/api/student/login', {
         method: 'POST',
@@ -46,9 +44,9 @@ function navigateToStudentProfile() {
     window.location.href = '/student/profile.html';
 }
 
-// Function to handle navigation to student marks page
-function navigateToStudentMarks() {
-    window.location.href = '/student/marks.html';
+// Function to handle navigation to student marks page for each exam
+function navigateToStudentMarks(examType) {
+    window.location.href = `/student/assessment${examType}.html`;
 }
 
 // Function to handle navigation to student attendance page
@@ -56,19 +54,82 @@ function navigateToStudentAttendance() {
     window.location.href = '/student/attendance.html';
 }
 
-// Function to display assessment marks for a student
+// Function to fetch and display assessment marks for a student
 function displayAssessmentMarks(examType) {
-    // Implement functionality to fetch and display assessment marks
-    console.log('Displaying assessment marks for exam:', examType);
+    // Fetch assessment marks for the specified exam type from backend API
+    fetch(`/api/student/assessment-marks?examType=${examType}`)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to fetch assessment marks');
+        }
+        return response.json();
+    })
+    .then(data => {
+        // Process and display assessment marks
+        console.log(`Assessment marks for ${examType}:`, data);
+        // Implement logic to display assessment marks on the page
+    })
+    .catch(error => {
+        console.error('Failed to fetch assessment marks:', error);
+        // Display error message to user
+    });
 }
 
-// Function to display attendance records for a student
+// Function to fetch and display attendance records for a student
 function displayAttendanceRecords() {
-    // Implement functionality to fetch and display attendance records
-    console.log('Displaying Attendance records');
+    // Fetch attendance records for the student from backend API
+    fetch('/api/student/attendance')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to fetch attendance records');
+        }
+        return response.json();
+    })
+    .then(data => {
+        // Process and display attendance records
+        console.log('Attendance records:', data);
+        // Implement logic to display attendance records on the page
+    })
+    .catch(error => {
+        console.error('Failed to fetch attendance records:', error);
+        // Display error message to user
+    });
 }
 
-// Add JavaScript logic to fetch and display student attendance data dynamically
+// Function to fetch and display student marks data dynamically for each exam
+function fetchAndDisplayMarksData(examType) {
+    // Fetch marks data for the student for the specified exam from backend API
+    fetch(`/api/student/marks?examType=${examType}`)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Failed to fetch marks data for ${examType}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        // Process and display marks data
+        console.log(`Marks data for ${examType}:`, data);
+        // Implement logic to display marks data on the page
+    })
+    .catch(error => {
+        console.error(`Failed to fetch marks data for ${examType}:`, error);
+        // Display error message to user
+    });
+}
+
+// Event listener for loading marks data when the page is loaded
+document.addEventListener("DOMContentLoaded", function() {
+    // Fetch and display marks data for each exam when the page is loaded
+    fetchAndDisplayMarksData('assessment1');
+    fetchAndDisplayMarksData('assessment2');
+    fetchAndDisplayMarksData('model');
+});
+
+// Event listener for loading attendance data when the page is loaded
+document.addEventListener("DOMContentLoaded", function() {
+    displayAttendanceRecords();
+});
+
 
 // Sample code to dynamically generate table rows for attendance
 // Sample code to dynamically generate table rows for attendance and display attendance percentage with a progress bar

@@ -23,6 +23,7 @@ func SetupServer(db *mongo.Database) *gin.Engine {
 	SetupStudentRoutes(router, studentController)
 	SetupMarkRoutes(router, markController)
 	SetupAttendanceRoutes(router, attendanceController)
+	SetupPageRoutes(router) // Add page routes
 
 	return router
 }

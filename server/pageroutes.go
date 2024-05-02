@@ -10,7 +10,7 @@ func SetupPageRoutes(router *gin.Engine) {
 	//Setting assets routes
 	router.Static("/assets", "./frontend/assets")
 	//Setting Page routes
-	router.Static("/assets", "./frontend/public/assets")
+	router.Static("/", "./frontend/public/")
 
 	// router.LoadHTMLGlob("frontend/*.html")
 

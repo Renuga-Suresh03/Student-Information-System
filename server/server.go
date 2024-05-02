@@ -19,11 +19,12 @@ func SetupServer(db *mongo.Database) *gin.Engine {
 	attendanceController := controllers.NewAttendanceController(db)
 
 	// Set up routes
-	SetupAdminRoutes(router, adminController)
-	SetupStudentRoutes(router, studentController)
-	SetupMarkRoutes(router, markController)
-	SetupAttendanceRoutes(router, attendanceController)
+	// SetupAdminRoutes(router, adminController)
+	// SetupStudentRoutes(router, studentController)
+	// SetupMarkRoutes(router, markController)
+	// SetupAttendanceRoutes(router, attendanceController)
 	SetupPageRoutes(router) // Add page routes
+	SetupAPIRoutes(router)
 
 	return router
 }
